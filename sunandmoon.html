@@ -1,33 +1,51 @@
 <!DOCTYPE html>
+Se guardi qua ti uccido
 <html lang="en">
+<style>
+	.red {
+		background-color: firebrick;
+		-webkit-transition:
+			background-color 100ms linear,
+			color 100ms linear;
+	}
+</style>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web form</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web form</title>
 </head>
-<body>
-    <div style="width: 100%; justify-content: center; text-align: center; margin-top: 20%;"> 
-    <form id="form">
-        <p>Enter the Password:</p>
-        <input type="text" placeholder="Password" id="password">
-        <button onclick="myFunction()"> Try </button>
-    </form>
-    <p id="errato" style="color: red;"></p>
-    </div>
+
+<body id="body">
+	<div style="width: 100%; justify-content: center; text-align: center; margin-top: 20%;">
+		<form id="form">
+			<p>Enter the Password:</p>
+			<input type="text" placeholder="Password" id="password">
+			<button onclick="myFunction()"> Try </button>
+		</form>
+		<p id="errato" style="color: red;"></p>
+	</div>
 </body>
+
 </html>
 
 <script type="text/javascript">
-var form=document.getElementById("form");
+	var form = document.getElementById("form");
 
-function submitForm(event){
-   event.preventDefault();
-}
-form.addEventListener('submit', submitForm);
+	function submitForm(event) {
+		event.preventDefault();
+	}
+	form.addEventListener('submit', submitForm);
 
-function myFunction() {
-var errato=document.getElementById('errato').innerHTML='Error' ;
-var password = document.getElementById("password").value;
-}
+	function resetBack(){
+		var body = document.getElementById('body').classList = ''
+	}
+
+	function myFunction() {
+		//var errato = document.getElementById('errato').innerHTML = 'Error';
+		var body = document.getElementById('body').classList = 'red'
+		var password = document.getElementById("password").value;
+		timeout = setTimeout(resetBack, 250);
+	}
 </script>
