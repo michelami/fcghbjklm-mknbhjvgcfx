@@ -1,67 +1,160 @@
 <!DOCTYPE html>
 <!-- 
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
-se guardi qui ti uccido 
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	se guardi qui ti uccido 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -->
 <html lang="en">
 <style>
 	.red {
 		background-color: firebrick;
-		-webkit-transition:
-			background-color 100ms linear,
-			color 100ms linear;
+		-webkit-transition: background-color 100ms linear, color 100ms linear;
+	}
+
+	.green {
+		background-color: green;
+		-webkit-transition: background-color 100ms linear, color 100ms linear;
+	}
+
+	.white {
+		background-color: white;
+		-webkit-transition: background-color 100ms linear, color 100ms linear;
+	}
+
+	.transition {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s, opacity 0.5s linear;
+		transition: all 0.3s ease-in;
+		transform: translateY(100vh);
+	}
+
+	.transition2 {
+		transform: translateY(0);
+		opacity: 1;
+		visibility: visible;
+
+
+	}
+
+	@font-face {
+		font-family: "Autumn Wind";
+		src: url('Autumn-Wind.ttf');
 	}
 </style>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Web form</title>
 </head>
 
-<body id="body">
-	<div style="width: 100%; justify-content: center; text-align: center; margin-top: 20%;">
+<body id="body" style="margin: 0; padding: 0">
+	<div style="
+				width: 100%;
+				min-height: 100vh;
+				background-color: white;
+				position: absolute;
+			" class="transition" id="transition">
+		<div>
+			<p style="width: 40%;
+			margin-left: 5%;
+			position: absolute;
+			font-size: 1.47vw;
+			margin-left: 27%;
+			margin-top: 3%;
+			font-family: Autumn Wind;">
+			02/10/1970 <br>
+			Dear Clare, <br>
+
+				I trust this letter finds you in good health and high spirits. I've delved into the matter you spoke of,
+				and what I've uncovered is nothing short of astonishing.
+
+				The initial report of illness surfaced approximately a month following the moon landing. It all started
+				in Virginia, and after that, nothing was heard of the astronauts. For nearly two more months, there was
+				a strange quietness, until Virginia authorities imposed a lockdown. The hospitals quickly filled up, and
+				hundreds of lives were lost. You likely know the grim details that followed. Enclosed within this
+				letter, you'll find the evidence I've gathered from various hospitals in the region.
+
+				It's become increasingly clear that the situation is dire, Clare. Many folks are fleeing the area, and
+				it seems that even Texas, once considered a haven, is no longer safe. I've heard rumors that the wealthy
+				are resorting to unconventional means of escape. Have you heard of the numerous spaceship accidents
+				lately? Far too many to ignore. I'm admittedly frightened, but I'll attempt the journey nonetheless. I
+				don't have many options left. I'll be departing California in a mere two days, so as you read this, I
+				may already be soaring through the skies.
+
+				I regret not having the chance to bid you farewell in person. My mother fell terribly ill, necessitating
+				my swift return home. Sadly, her condition remains unchanged. In fact, she seems unresponsive, much like
+				everyone else who succumbed to this ailment. She simply ceased to exist: no breath, no pulse, not even
+				a hint of blood. Yet, she remains with us, devoid of decay. I had hoped she possessed a certain
+				strength, but it appears she couldn't overcome this ordeal. I've made the difficult decision to leave
+				her behind. I apologize for this, Clare.
+
+				Should you ever come across the antidote we seek, please consider paying her a visit. She's at home with
+				her beloved cats, or at least they were there the last time I saw them.
+
+				Farewell for now, Clare, and may the winds of fortune guide us to safer shores.
+
+				<br> Yours in tumultuous times, Pat    </p>
+
+			<img src="3477040_1.png" style="margin-left: 25%;
+			width: 44%;">
+
+		</div>
+
+		<img src="37356.png" style="width: 50%; margin-left: 25%;">
+		<img src="record1.jpg" style="width: 100%;">
+		<img src="record2.jpg" style="width: 100%;">
+
+
+	</div>
+	<div style="
+				width: 100%;
+				justify-content: center;
+				text-align: center;
+				padding-top: 20%;
+			">
 		<form id="form">
 			<p>Enter the Password:</p>
-			<input type="text" placeholder="Password" id="password">
-			<button onclick="myFunction()"> Try </button>
+			<input type="text" placeholder="Password" id="password" />
+			<button onclick="myFunction()">Try</button>
 		</form>
-		<p id="errato" style="color: red;"></p>
+		<p id="errato" style="color: red"></p>
 	</div>
 </body>
 
@@ -73,16 +166,34 @@ se guardi qui ti uccido
 	function submitForm(event) {
 		event.preventDefault();
 	}
-	form.addEventListener('submit', submitForm);
+	form.addEventListener("submit", submitForm);
 
-	function resetBack(){
-		var body = document.getElementById('body').classList = ''
+	function resetBack() {
+		var body = (document.getElementById("body").classList = "");
+	}
+
+	function animation() {
+		var transitionDiv = document.getElementById('transition').classList.add('transition2')
 	}
 
 	function myFunction() {
-		//var errato = document.getElementById('errato').innerHTML = 'Error';
-		var body = document.getElementById('body').classList = 'red'
 		var password = document.getElementById("password").value;
-		timeout = setTimeout(resetBack, 250);
+		var errato = document.getElementById("errato");
+
+		if (password!=='84531') {
+			if (password.length<=4){
+				errato.innerHTML= "Seems like you're forgetting something";
+			} else if(password.length>5){
+				errato.innerHTML= "You haven't looked in the right place";
+			}
+			var body = (document.getElementById("body").classList = "red");
+			timeout = setTimeout(resetBack, 250);
+		} else {
+			console.log('Finally!')
+			console.log('446f6e2774207472757374207468656d2e5468657920646f6e2774206b6e6f772e')
+			var body = (document.getElementById("body").classList = "green");
+			timeout = setTimeout(animation, 250);
+			errato.innerHTML= ""
+		}
 	}
 </script>
